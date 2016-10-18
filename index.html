@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <style type="text/css">
+        #Canvas1,#Canvas2{
+            border:solid 3px black;
+        }
+        .block{
+            width:120px;
+            height:120px;
+            border:1px solid black;
+            margin:3px;
+        }
+        .line {
+            display: inline-block;
+            float: left;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            function drawCross(target){
+                var canvas = document.createElement(" <canvas width='100' height='100'>Your Browser doesn't support canvas</canvas>"
+            )
+                if(canvas && canvas.getContext) {
+                    var ctx = canvas.getContext("2d");
+                    if(ctx){
+
+                        ctx.beginPath();
+                        ctx.moveTo(0,0);
+                        ctx.lineTo(100,100);
+                        ctx.strokeStyle = "#E8B20C";
+                        ctx.lineWidth = 5;
+                        ctx.stroke();
+
+                        ctx.beginPath();
+                        ctx.moveTo(100,0);
+                        ctx.lineTo(0,100);
+                        ctx.strokeStyle = "#E8B20C";
+                        ctx.lineWidth = 5;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+
+            var can2 = document.getElementById('Canvas2');
+            if(can2 && can2.getContext) {
+                var ctx = can2.getContext("2d");
+                if(ctx){
+                    ctx.beginPath();
+                    ctx.arc(50,50,45,0,2*Math.PI);
+                    ctx.strokeStyle = "#E8B20C";
+                    ctx.lineWidth = 5;
+                    ctx.stroke();
+                }
+            }
+
+            // Game On
+            document.getElementById("b1").addEventListener('click', function(e){
+                drawCross(e);
+            })
+
+        }
+    </script>
+</head>
+<body>
+<h1>Tic Tac Toe</h1>
+<canvas id="Canvas1" width="100" height="100">Your Browser doesn't support canvas</canvas>
+<canvas id="Canvas2" width="100" height="100">Your Browser doesn't support canvas</canvas>
+<div class="wrapper">
+    <section class="line">
+        <div class="block" id="b1">Block 1</div>
+        <div class="block" id="b2">Block 2</div>
+        <div class="block" id="b3">Block 3</div>
+    </section>
+
+    <section class="line">
+        <div class="block" id="b4">Block 4</div>
+        <div class="block" id="b5">Block 5</div>
+        <div class="block" id="b6">Block 6</div>
+    </section>
+
+    <section class="line">
+        <div class="block" id="b7">Block 7</div>
+        <div class="block" id="b8">Block 8</div>
+        <div class="block" id="b9">Block 9</div>
+    </section>
+
+</div>
+</body>
+</html>
